@@ -45,5 +45,8 @@ You should have something that looks like this:
 
 - Install the required libraries from the `requirements.txt` file using the command with the venv activated (i.e. in `(venv) PS C:\...\nearest-neighbours-grid>`):
 ```powershell
-pip install -r requirements.text
+pip install -r requirements.txt
 ```
+
+> [!IMPORTANT]  
+> Make sure to select the **venv Python Executable** as the Interpreter if you are using VS Code. If you are using **PyCharm** to load the project, the venv Interpreter should be automatically detected in the project.
