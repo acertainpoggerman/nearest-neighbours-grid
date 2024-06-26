@@ -17,14 +17,29 @@ C:\...\nearest-neighbours-grid> python3.12 -m venv myvenv
 - To activate the virtual environment, run the command `<venv-name>\Scripts\Activate.ps1` (If you are using **Powershell**), or `<venv-name>\Scripts\activate.bat` (If you are using **Command Prompt**), for example:
 ```powershell
 # powershell
-PS C:\> myvenv\Scripts\Activate.ps1
+PS C:\...\nearest-neighbours-grid> myvenv\Scripts\Activate.ps1
 ```
 ```powershell
 # cmd
-C:\> myvenv\Scripts\activate.bat
+C:\...\nearest-neighbours-grid> myvenv\Scripts\activate.bat
+```
+You should have something that looks like this:
+```powershell
+(venv) PS C:\...\nearest-neighbours-grid> 
 ```
 
-> [!CAUTION]
-> If You get an error in Powershell: `<venv-name>\Scripts\Activate.ps1 cannot be loaded because the execution of scripts is disabled on this system.` run the 
+<br>
 
-- Install the required libraries using 
+> [!TIP] 
+> If You get an error in Powershell: `<venv-name>\Scripts\Activate.ps1 cannot be loaded because the execution of scripts is disabled on this system.` run the following command:
+> ```powershell
+> PS C:\> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
+> ```
+> and try to activate the virtual environment again.
+
+<br>
+
+- Install the required libraries from the `required-libs.txt` file using the command with the venv activated:
+```powershell
+(venv) PS C:\...\nearest-neighbours-grid> pip
+```
