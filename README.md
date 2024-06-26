@@ -43,7 +43,7 @@ You should have something that looks like this:
 
 <br>
 
-- Install the required libraries from the `required-libs.txt` file using the command with the venv activated (i.e. in `(venv) PS C:\...\nearest-neighbours-grid>`):
+- Install the required libraries from the `requirements.txt` file using the command with the venv activated (i.e. in `(venv) PS C:\...\nearest-neighbours-grid>`):
 ```powershell
-pip install -r required-libs.text
+pip install -r requirements.text
 ```
