@@ -8,7 +8,7 @@ You are given an empty square grid (NxN Boxes) and are
 
 ### Cloning this Repository
 
-To start this project, first **star** the project (Thank you!)
+To start this project, Please first **star** ⭐ the project (Thank you!). Fork the repository
 
 <!-- TODO: Add Text Here -->
 
