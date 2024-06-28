@@ -1,18 +1,13 @@
 # CodeAWeek #1
 
-## Challenge
-
-You are given an empty square grid (NxN Boxes) and are 
-
 ## Setting up the Project
 
 ### Cloning this Repository
-
-To start this project, Please first **star** ⭐ the project (Thank you!). Fork the repository
+To start this project, Please first **star** ⭐ the project (Thank you!). Fork the repository, and clone it to your local machine.
 
 <!-- TODO: Add Text Here -->
 
-### Final Touches
+### Setting up the venv
 The project will use a Python 3.12 virtual environment (venv) to run itself. To set up the virtual environment:
 
 - First install the `virtualenv` package using `pip`:
@@ -55,3 +50,21 @@ pip install -r requirements.txt
 
 > [!IMPORTANT]  
 > Make sure to select the **venv Python Executable** as the Interpreter if you are using VS Code. If you are using **PyCharm** to load the project, the venv Interpreter should be automatically detected in the project.
+
+### Creating your Solution
+Your directory tree should look similar to this:
+
+```
+nearest-neighbours-grid/
+├─ src/
+│  ├─ misc/
+│  │  ├─ constants.py
+│  │  ├─ utils.py
+│  ├─ main.py
+│  ├─ grid.py
+│  ├─ button.py
+├─ venv/
+├─ assets/
+```
+
+You will ideally only need to type code in `grid.py`, but if you want to add any helper functions or constants, you can place them in `utils.py` or `constants.py` under `misc/`.
