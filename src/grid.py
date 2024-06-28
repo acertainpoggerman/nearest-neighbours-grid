@@ -247,6 +247,8 @@ class Grid():
         The algorithm should find the two points closest points, and return their indexes in the self.points list. If it
         works as intended, clicking the link button in the GUI should create a line that connects the 2 closest points.
         
+        Ideally should work in O(nlogn) time, rather than O(n²) time.
+        
         Returns
         -------
         The indexes of the 2 nearest points in self.points, Or (None, None) if there are less than 2 points on the grid
