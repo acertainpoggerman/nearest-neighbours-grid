@@ -7,7 +7,7 @@
 ## Setting up the Project
 
 ### Cloning this Repository
-TODO: Add Text Here
+<!-- TODO: Add Text Here -->
 
 ### Final Touches
 The project will use a Python 3.12 virtual environment (venv) to run itself. To set up the virtual environment:
@@ -35,8 +35,6 @@ You should have something that looks like this:
 ```powershell
 (venv) PS C:\...\nearest-neighbours-grid> 
 ```
-
-<br>
 
 > [!TIP] 
 > If You get an error in Powershell: `<venv-name>\Scripts\Activate.ps1 cannot be loaded because the execution of scripts is disabled on this system.` run the following command:
