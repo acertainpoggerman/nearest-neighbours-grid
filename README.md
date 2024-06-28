@@ -1,14 +1,21 @@
 # CodeAWeek #1
 
+## The Challenge
+
 ## Setting up the Project
 
 ### Cloning this Repository
-To start this project, Please first **star** ⭐ the project (Thank you!). Fork the repository, and clone it to your local machine.
+To start this project, Fork the repository, and clone it to your local machine. If you have trouble doing this, see [Forking Repositories](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
 
 <!-- TODO: Add Text Here -->
 
 ### Setting up the venv
-The project will use a Python 3.12 virtual environment (venv) to run itself. To set up the virtual environment:
+The project will use a Python 3.12 virtual environment (venv) to run itself. Simplified, a virtual environment is an isolated running space of the programming language (in this case Python). This means all libraries and scripts in this environment are isolated from other environments (even the system version of Python).
+
+> [!TIP]
+> To learn more about python's virtual environment, you can check the official documentation [here](https://docs.python.org/3/library/venv.html).
+
+To set up the virtual environment:
 
 - First install the `virtualenv` package using `pip`:
 ```properties
@@ -67,4 +74,4 @@ nearest-neighbours-grid/
 ├─ assets/
 ```
 
-You will ideally only need to type code in `grid.py`, but if you want to add any helper functions or constants, you can place them in `utils.py` or `constants.py` under `misc/`.
+You will ideally only need to write code in `grid.py`, but if you want to add any helper functions or constants, you can place them in `utils.py` or `constants.py` under `misc/`.
