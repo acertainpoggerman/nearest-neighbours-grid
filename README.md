@@ -2,11 +2,14 @@
 
 ## Challenge
 
-
+You are given an empty square grid (NxN Boxes) and are 
 
 ## Setting up the Project
 
 ### Cloning this Repository
+
+To start this project, first **star** the project (Thank you!)
+
 <!-- TODO: Add Text Here -->
 
 ### Final Touches
