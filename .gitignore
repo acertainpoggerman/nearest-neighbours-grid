@@ -1,1 +1,4 @@
 /venv
+/src/test.py
+/src/__pycache__
+/src/misc/__pycache__
