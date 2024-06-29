@@ -22,7 +22,7 @@ class Grid():
         self.link_color: Color = GREEN
         self.text_color: Color = GRAY50
         
-        self.points: list[Point] = [(2, 5), (1, 1)]
+        self.points: list[Point] = []
         self.nearest_points: NearestPointsIndex = (None, None)
         
         self.can_click = False
@@ -121,14 +121,13 @@ class Grid():
     
     def render(self) -> None:
         
-            
+        # Rendering top text (Number of Points)
         text = self.font.render(f"Number of Points: {len(self.points)}", True, WHITE)
         text_rect = text.get_rect()
         text_rect.bottomleft = offset_tuple(self.start, (0, -10))
-        
         self.screen.blit(text, text_rect)
         
-        # Rendering the button
+        # Rendering the buttons
         self.refresh_button.render(self.screen)
         self.toggle_button.render(self.screen)
         self.link_button.render(self.screen)
