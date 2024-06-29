@@ -1,7 +1,18 @@
 # CodeAWeek #1
 
 ## The Challenge
-You have a grid![image](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/21dd94e4-00c6-4c23-88af-a9f941d1e3f2|width=10)
+You have a grid, text above it indicating the number of points on the grid, as well as 3 buttons below the grid:
+
+- (_leftmost_) The link button, which should connect the 2 closest points on the grid.
+- (_middle_) The refresh button, which clears the grid (if the grid is in click mode), or should randomly put `n` number of points on the grid (If it not in click mode).
+- (_rightmost_) The button that toggles click mode on/off. Will highlight blue if in click mode.
+
+The challenge is to implement 3 things:
+- The method that randomizes the points on the grid.
+- The method for adding / removing of points in **click mode**.
+- The method that finds the 2 **nearest points** in the grid.
+
+See more information about the challenge [here](#creating-your-solution).
 
 ## Setting up the Project
 
