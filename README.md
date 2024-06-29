@@ -1,6 +1,17 @@
-# CodeAWeek #1
+# Code a Week #1
 
-## The Challenge
+
+| **Difficulty** | 🟩🟩⬛⬛⬛⬛ `Easy` |
+| ---------- | ---------------------- |
+| **Language(s)**   | `Python`        |
+
+## Challenge
+<p align="center">
+  <img src="https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/74d9e204-2917-434f-a97c-47fc28779953" alt="UI Picture" width="640" align="center">
+</p>
+
+<br>
+
 You have a grid, text above it indicating the number of points on the grid, as well as 3 buttons below the grid:
 
 - (_leftmost_) The link button, which should connect the 2 closest points on the grid.
@@ -10,7 +21,7 @@ You have a grid, text above it indicating the number of points on the grid, as w
 The challenge is to implement 3 things:
 - The method that randomizes the points on the grid.
 - The method for adding / removing of points in **click mode**.
-- The method that finds the 2 **nearest points** in the grid.
+- The method that finds the 2 **nearest points** in the grid (in _O(nlogn)_ time).
 
 See more information about the challenge [here](#creating-your-solution).
 
