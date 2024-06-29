@@ -34,7 +34,6 @@ class Grid():
         start = get_centered_start(self.screen.get_size(), self.size)
         self.bounds = pygame.Rect(*start, *self.size)
         
-        
         button_size: int = 50
         assets_path = path.abspath(path.join(__file__, f"{pardir}/{pardir}/assets/"))
         
@@ -245,17 +244,14 @@ class Grid():
         """ Adds or removes a point to an intersection on the grid (Thank you Fere for suggesting this (^-^) )
         
         Should snap the point to the grid intersection closest to the mouse cursor, as well as save the point
-        to the self.points attribute. If a point already exists at the target position, remove that point instead
+        to the self.points attribute. If a point already exists at the target position, remove that point instead. Should
+        not add points on the boundary of the grid (e.g. (0, 0))
         
         Parameters
         ----------
         pos: tuple[int, int]
             The mouse position in screen-space, but relative to the grid, so at the top-left of the grid, pos will be
             (0, 0) and at the bottom-right, pos will be (width, height) of the grid.
-            
-        Returns
-        -------
-        The position of the point in grid-space e.g. (1, 1).
         
         """
         
@@ -270,7 +266,7 @@ class Grid():
     def find_nearest_points(self) -> tuple[int, int]:
         """ Finds the nearest pair of points in self.points
         
-        The algorithm should find the two points closest points, and return their coordinates. If it
+        The algorithm should find the two points closest points, and return their coordinates in the form ((x1, y1), (x2, y2)). If it
         works as intended, clicking the link button in the GUI should create a line that connects the 2 closest points.
         
         Ideally should work in O(nlogn) time, rather than O(n²) time.
