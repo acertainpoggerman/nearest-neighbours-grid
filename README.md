@@ -1,6 +1,7 @@
 # CodeAWeek #1
 
 ## The Challenge
+You have a grid![image](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/21dd94e4-00c6-4c23-88af-a9f941d1e3f2|width=10)
 
 ## Setting up the Project
 
