@@ -164,7 +164,7 @@ class Grid():
         self.nearest_points = (None, None)
     
     def refresh_grid(self) -> None:
-        """Performs an action based on the already
+        """ Performs an action based on the already
         
         Will execute clear_points() if the grid is in click mode (Indicated by the toggle button being blue)
         but will also perform randomize_points() if the grid is not in click mode.
