@@ -2,7 +2,7 @@
 
 
 | **Difficulty** | 🟨🟨🟨⬛⬛⬛ `Medium`      |
-| :---------- | -------------------------------- |
+| :---------- | :------------------------------- |
 | **Language(s)**   | `Python`                   |
 | **Themes**   | `GUI` `Algorithms` `Conceptual` `Detailed` |
 
@@ -118,7 +118,7 @@ You will ideally only need to write code in `grid.py`, but if you want to add an
 
 There are only 3 functions required to be implemented:
 
-1. `Grid.randomize_points(n)` (~ Line 202 in `grid.py`): A method with takes a number of points `n` & should return a list of `n` randomly placed non-overlapping points (i.e. points that do not share the same coordinates) on the grid. If it works as intended, `n` number of points should be randomly scattered across the grid when clicking the refresh button (and when the grid is not in click mode). You can adjust the number of points to be creating in ~ Line 19 in `main.py`
+1. `Grid.randomize_points(n)` (~ Line 218 in `grid.py`): A method with takes a number of points `n` & should return a list of `n` randomly placed non-overlapping points (i.e. points that do not share the same coordinates) on the grid. If it works as intended, `n` number of points should be randomly scattered across the grid when clicking the refresh button (and when the grid is not in click mode). You can adjust the number of points to be creating in ~ Line 19 in `main.py`
 
 Example: `randomize_points(5)`
 | `self.points = [(2, 4), (1, 3), (5, 1), (4, 2), (1, 1)]` | `self.points = [(6, 6), (4, 6), (6, 2), (7, 5), (3, 3)]` | `self.points = [(1, 1), (2, 2), (4, 4), (6, 6), (7, 7)]` |
@@ -126,14 +126,14 @@ Example: `randomize_points(5)`
 | ![image](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/ea58d51e-afd0-48b9-a9f0-fee774c118bf) | ![image](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/c77e8868-c5ff-491f-b338-58eca316b1bd) | ![image](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/cbe3358a-3b42-40c5-a927-31ea3d1eb3ee) |
 
 
-2. `Grid.toggle_point(pos)` (~ Line 227 in `grid.py`): A method which takes the position of the cursor relative to the grid and should add or remove a point from an intersection on the grid nearest to that cursor position (Essentially snap the points to the grid intersection). Since the points are in grid space.
+2. `Grid.toggle_point(pos)` (~ Line 243 in `grid.py`): A method which takes the position of the cursor relative to the grid and should add or remove a point from an intersection on the grid nearest to that cursor position (Essentially snap the points to the grid intersection). Since the points are in grid space.
 
 Example:
 | Adding Points to the Grid | Removing Existing Points from the Grid |
 | -- | -- |
 | ![grid-clicking](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/75137cf9-d3eb-4217-9edc-e27ab7b4c066) | ![grid-clicking-removing](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/e3088bd6-4072-4641-9300-07a44f9f38ae) |
 
-3. `Grid.find_nearest_points()` (~ Line 254 in `grid.py`): A method which should return a tuple containing the coordinates of the two closest points. If it works as intended, clicking the link button in the GUI should draw a line connecting the 2 closest points. In the case the closest 2 points share the same distance, only one of the pairs should be picked.
+3. `Grid.find_nearest_points()` (~ Line 269 in `grid.py`): A method which should return a tuple containing the coordinates of the two closest points. If it works as intended, clicking the link button in the GUI should draw a line connecting the 2 closest points. In the case the closest 2 points share the same distance, only one of the pairs should be picked.
 
 Example:
 | `self.points = [(6, 6), (4, 6), (6, 2), (7, 5), (3, 3), (1, 2), (3, 1), (1, 7)]` | `self.points = [(1, 1), (3, 3), (1, 2), (7, 7), (4, 4), (6, 3), (7, 3), (3, 1), (1, 7)]` |
@@ -146,6 +146,11 @@ Example:
 > - There are duplicate points (i.e. points with the same coordinates) in `self.points`.
 > - There are points placed on or outside the grid boundary in `randomize_points()` or `toggle_point()`.
 > - `find_nearest_points()` returns coordinates of points that do not currently exist on the grid.
+
+> [!TIP]
+> If you need more information about each method, you can check the code documentation for `grid.py`
+
+<br>
 
 ## Extra
 This challenge was inspired from **Divide & Conquer** algorithms, specifically *finding nearest neighbours* algorithm. Other algorithms you can check out that follow this principle are:
