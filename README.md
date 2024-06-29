@@ -1,10 +1,10 @@
-# Code a Week #1
+# Code a Week #0.5
 
 
 | **Difficulty** | 🟨🟨🟨⬛⬛⬛ `Medium`      |
 | :---------- | -------------------------------- |
 | **Language(s)**   | `Python`                   |
-| **Themes**   | `GUI` `Algorithms` `Conceptual` |
+| **Themes**   | `GUI` `Algorithms` `Conceptual` `Detailed` |
 
 ## Challenge
 <p align="center">
@@ -104,20 +104,21 @@ You will ideally only need to write code in `grid.py`, but if you want to add an
 
 > [!IMPORTANT]
 > Points on the grid are stored in the attribute `self.points` in the Grid object, each point being represented as a tuple `(x, y)`, where x and y are **integers**. The point coordinates are in **grid-space** as opposed to **screen-space** for example:
-> 
-> <img src="https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/38787877-e735-4818-b69c-014a52b25b8e" alt="UI Picture" width="300">
+> | Grid Space | Screen Space |
+> | -- | -- |
+> | ![Coordinates in Grid Space](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/38787877-e735-4818-b69c-014a52b25b8e) | ![Coordinates in Screen Space](https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/bc047c53-c5d9-4a10-99d0-d10adf033be9)
 >
 > To add a point to the grid, you simply append it to `self.points` (THE POINT MUST BE IN GRID SPACE), and to remove a point from the grid, use `self.points.remove((x, y))`. As an additional rule, points cannot be placed on or outside the boundary (i.e. the thick line):
 >
 > <img src="https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/2ae076e4-56ae-459c-8c35-b3e634a7fda8" alt="UI Picture" width="300">
-> 
+
 
 
 
 
 There are only 3 functions required to be implemented:
 
-1. `Grid.randomize_points(n)` (~ Line 202 in `grid.py`): A method with takes a number of points `n` & should return a list of `n` randomly placed non-overlapping points (i.e. points that do not share the same coordinates) on the grid.
+1. `Grid.randomize_points(n)` (~ Line 202 in `grid.py`): A method with takes a number of points `n` & should return a list of `n` randomly placed non-overlapping points (i.e. points that do not share the same coordinates) on the grid. If it works as intended, `n` number of points should be randomly scattered across the grid when clicking the refresh button (and when the grid is not in click mode). You can adjust the number of points to be creating in ~ Line 19 in `main.py`
 
 Example: `randomize_points(5)`
 | `self.points = [(2, 4), (1, 3), (5, 1), (4, 2), (1, 1)]` | `self.points = [(6, 6), (4, 6), (6, 2), (7, 5), (3, 3)]` | `self.points = [(1, 1), (2, 2), (4, 4), (6, 6), (7, 7)]` |
@@ -150,6 +151,8 @@ Example:
 This challenge was inspired from **Divide & Conquer** algorithms, specifically *finding nearest neighbours* algorithm. Other algorithms you can check out that follow this principle are:
 - Sorting Algorithms (mergesort & quicksort)
 - The Counting Inversions Algorithm (Used in earlier page ranking & recommendation systems)
+
+This challenge also serves as a foundation template for future challenges, so future challenges will certainly be more flexible than this.
 
 Good Luck, Have Fun 💀.
 
