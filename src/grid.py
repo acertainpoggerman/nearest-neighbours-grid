@@ -20,8 +20,9 @@ class Grid():
         self.bounds_color: Color = WHITE
         self.dot_color: Color = WHITE
         self.link_color: Color = GREEN
+        self.text_color: Color = GRAY50
         
-        self.points: list[Point] = []
+        self.points: list[Point] = [(2, 5), (1, 1)]
         self.nearest_points: NearestPointsIndex = (None, None)
         
         self.can_click = False
@@ -36,6 +37,8 @@ class Grid():
         
         button_size: int = 50
         assets_path = path.abspath(path.join(__file__, f"{pardir}/{pardir}/assets/"))
+        
+        self.font = pygame.font.Font(f"{assets_path}/fonts/OpenSans-Regular.ttf", 20)
         
         # Buttons < Start> >
         self.refresh_button = Button(
@@ -118,6 +121,13 @@ class Grid():
     
     def render(self) -> None:
         
+            
+        text = self.font.render(f"Number of Points: {len(self.points)}", True, WHITE)
+        text_rect = text.get_rect()
+        text_rect.bottomleft = offset_tuple(self.start, (0, -10))
+        
+        self.screen.blit(text, text_rect)
+        
         # Rendering the button
         self.refresh_button.render(self.screen)
         self.toggle_button.render(self.screen)
@@ -149,7 +159,7 @@ class Grid():
  
  
     def clear_points(self) -> None:
-        """Clears all points in the grid """
+        """ Clears all points in the grid """
         self.points = []
         self.nearest_points = (None, None)
     
