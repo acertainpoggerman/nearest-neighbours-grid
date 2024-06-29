@@ -102,8 +102,8 @@ class Grid():
         
         if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
-            if self.bounds.collidepoint(pos): 
-                self.toggle_point(pos)  
+            if self.bounds.collidepoint(pos) and self.can_click: 
+                self.toggle_point(offset_tuple(pos, scale_tuple(self.start, -1)))  
                 return
             
         self.link_button.handle_event(event)
@@ -224,7 +224,8 @@ class Grid():
         Parameters
         ----------
         pos: tuple[int, int]
-            The mouse position in screen-space.
+            The mouse position in screen-space, but relative to the grid, so at the top-left of the grid, pos will be
+            (0, 0) and at the bottom-right, pos will be (width, height) of the grid.
             
         Returns
         -------
@@ -232,7 +233,8 @@ class Grid():
         
         """
         
-        # TODO: Start Here. You are free to remove anything below in this method
+        # TODO: Start Here. You are free to remove anything below in this method. You can test how pos
+        #       works by clicking the grid (in click mode) and seeing the output from the print statement
         
         print(f"Toggled Point {pos}")
         

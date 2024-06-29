@@ -11,3 +11,6 @@ def offset_tuple(tup: tuple[int, int], offset: tuple[int, int]) -> tuple[int, in
 
 def offset_tuple_scalar(tup: tuple[int, int], offset: int) -> tuple[int, int]:
     return (tup[0] + offset, tup[1] + offset)
+
+def scale_tuple(tup: tuple[int, int], factor: int) -> tuple[int, int]:
+    return (tup[0] * factor, tup[1] * factor)
