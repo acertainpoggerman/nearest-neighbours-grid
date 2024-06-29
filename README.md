@@ -107,7 +107,7 @@ You will ideally only need to write code in `grid.py`, but if you want to add an
 > 
 > <img src="https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/38787877-e735-4818-b69c-014a52b25b8e" alt="UI Picture" width="300">
 >
-> To add a point to the grid, you simply append it to `self.points`, and to remove a point from the grid, use `self.points.remove((x, y))`. As an additional rule, points cannot be placed on or outside the boundary (i.e. the thick line):
+> To add a point to the grid, you simply append it to `self.points` (THE POINT MUST BE IN GRID SPACE), and to remove a point from the grid, use `self.points.remove((x, y))`. As an additional rule, points cannot be placed on or outside the boundary (i.e. the thick line):
 >
 > <img src="https://github.com/acertainpoggerman/nearest-neighbours-grid/assets/127584171/2ae076e4-56ae-459c-8c35-b3e634a7fda8" alt="UI Picture" width="300">
 > 
