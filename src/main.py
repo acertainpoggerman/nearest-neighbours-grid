@@ -16,7 +16,7 @@ clock = pygame.time.Clock()
 running = True
 
 # Adjust Grid Parameters Here
-grid = Grid(screen, 8)
+grid = Grid(screen, boxes_per_axis=8, randomized_point_count=5)
 
 while running:
     

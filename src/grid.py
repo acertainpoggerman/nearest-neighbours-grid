@@ -13,7 +13,7 @@ from button import Button
 class Grid():
     """ A class that represents a square grid
     """
-    def __init__(self, screen: pygame.Surface, boxes_per_axis: int, width: int = 800) -> None:
+    def __init__(self, screen: pygame.Surface, boxes_per_axis: int, randomized_point_count: int = 5, width: int = 800) -> None:
 
         self.gridline_color: Color = GRAY25
         self.bounds_color: Color = WHITE
@@ -22,9 +22,10 @@ class Grid():
         self.text_color: Color = GRAY50
         
         self.points: list[Point] = []
-        self.nearest_points: NearestPointsIndex = (None, None)
+        self.nearest_points: tuple[Point, Point] = (None, None)
         
         self.can_click = False
+        self.randomized_point_count = randomized_point_count
         
         self.screen = screen
         self.size = width, width
@@ -91,11 +92,11 @@ class Grid():
     
     @property
     def intersections_per_axis(self) -> int: 
-        """ The number of intersections per axis """
+        """ The number of intersections per axis, excluding intersections on the boundary. """
         return self.boxes_per_axis - 1
     @property
     def num_intersections(self) -> int: 
-        """ The number of intersections in the entire grid """
+        """ The number of intersections in the entire grid, excluding intersections on the boundary """
         return self.intersections_per_axis ** 2
     
     
@@ -137,15 +138,24 @@ class Grid():
             pygame.draw.line(
                 self.screen, self.gridline_color, 
                 (self.start[0] + x * self.box_size, self.start[1]), 
-                (self.start[0] + x * self.box_size, self.start[1] + self.height)
+                (self.start[0] + x * self.box_size, self.start[1] + self.height),
             )
             
         for y in range(1, self.boxes_per_axis):
             pygame.draw.line(
                 self.screen, self.gridline_color, 
                 (self.start[0], self.start[1] + y * self.box_size), 
-                (self.start[0] + self.width, self.start[1] + y * self.box_size)
+                (self.start[0] + self.width, self.start[1] + y * self.box_size),
             )
+        
+        
+        # Render the line connecting the two nearest points
+        if not None in self.nearest_points:
+            nearest_points_screen_space = self.to_screen_space(self.nearest_points[0]), self.to_screen_space(self.nearest_points[1])
+            pygame.draw.line(
+                    self.screen, self.link_color, 
+                    *nearest_points_screen_space, 4
+                )
         
         # Render Points on the Grid (Will convert the points from grid-space to screen-space)
         for point in self.points:
@@ -173,7 +183,7 @@ class Grid():
         if self.can_click: self.clear_points()
         else: 
             self.clear_points
-            result = self.randomize_points(10)
+            result = self.randomize_points(self.randomized_point_count)
             if len(set(result)) < len(result): 
                 raise Exception("You got overlapping points :D")
             self.points = [*result]
@@ -190,6 +200,9 @@ class Grid():
     
     def link_nearest_points(self) -> None:
         self.nearest_points = self.find_nearest_points()
+        if not (self.nearest_points[0], self.nearest_points[1]) == (None, None):
+            if not (self.nearest_points[0] in self.points or self.nearest_points[1] in self.points):
+                raise Exception("You are giving the grid wrong coordinates")
         
     def validate_points(self) -> None:
         for point in self.points:
@@ -224,7 +237,7 @@ class Grid():
         
         # TODO: Start Here. You are free to remove anything below this method
         
-        points: list[Point] = [(0, 2), (2, 2)]
+        points: list[Point] = []
         return points
     
     
@@ -249,8 +262,7 @@ class Grid():
         # TODO: Start Here. You are free to remove anything below in this method. You can test how pos
         #       works by clicking the grid (in click mode) and seeing the output from the print statement
         
-        print(f"Toggled Point {pos}")
-        
+        print(f"Clicked point {pos}")        
         ...
     
     
@@ -258,18 +270,18 @@ class Grid():
     def find_nearest_points(self) -> tuple[int, int]:
         """ Finds the nearest pair of points in self.points
         
-        The algorithm should find the two points closest points, and return their indexes in the self.points list. If it
+        The algorithm should find the two points closest points, and return their coordinates. If it
         works as intended, clicking the link button in the GUI should create a line that connects the 2 closest points.
         
         Ideally should work in O(nlogn) time, rather than O(n²) time.
         
         Returns
         -------
-        The indexes of the 2 nearest points in self.points, Or (None, None) if there are less than 2 points on the grid
+        The coordinates of the 2 nearest points in self.points, Or (None, None) if there are less than 2 points on the grid
         
         """
         
         # TODO: Start Here. You are free to remove anything below in this method
         
-        point_indices: NearestPointsIndex = (None, None)
-        return point_indices
+        points: tuple[Point, Point] = (None, None)
+        return points
