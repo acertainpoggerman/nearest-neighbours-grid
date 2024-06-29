@@ -14,7 +14,6 @@ class Grid():
     """ A class that represents a square grid
     """
     def __init__(self, screen: pygame.Surface, boxes_per_axis: int, width: int = 800) -> None:
-        
 
         self.gridline_color: Color = GRAY25
         self.bounds_color: Color = WHITE
@@ -40,7 +39,7 @@ class Grid():
         
         self.font = pygame.font.Font(f"{assets_path}/fonts/OpenSans-Regular.ttf", 20)
         
-        # Buttons < Start> >
+        # Buttons < Start>
         self.refresh_button = Button(
             (
                 self.start[0] + get_centered_start(self.size, (50, 50))[0],
@@ -106,7 +105,8 @@ class Grid():
         if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
             if self.bounds.collidepoint(pos) and self.can_click: 
-                self.toggle_point(offset_tuple(pos, scale_tuple(self.start, -1)))  
+                self.toggle_point(offset_tuple(pos, scale_tuple(self.start, -1)))
+                self.validate_points()
                 return
             
         self.link_button.handle_event(event)
@@ -176,6 +176,8 @@ class Grid():
             result = self.randomize_points(10)
             if len(set(result)) < len(result): 
                 raise Exception("You got overlapping points :D")
+            self.points = [*result]
+            self.validate_points()
         
     def toggle_grid_clicking(self) -> None:
         """ Changes whether the grid can be clicked on to add/remove points. """
@@ -189,7 +191,10 @@ class Grid():
     def link_nearest_points(self) -> None:
         self.nearest_points = self.find_nearest_points()
         
-        
+    def validate_points(self) -> None:
+        for point in self.points:
+            if point[0] <= 0 or point[1] <= 0 or point[0] > self.intersections_per_axis or point[1] > self.intersections_per_axis:
+                raise Exception("You got points on or outside the grid boundary")
     
     def to_screen_space(self, point) -> tuple[int, int]:
         return offset_tuple(self.start, (point[0]*self.box_size, point[1]*self.box_size))
@@ -202,8 +207,7 @@ class Grid():
         """ Creates a random list of non-overlapping points
         
         The resulting list of points [(x, y), ... ] should be in grid-space as opposed
-        to screen-space (i.e. points on the grid). The points should implicitly be assigned to self.points,
-        as well as returned.
+        to screen-space (i.e. points on the grid).
         
         Parameters
         ----------
@@ -220,11 +224,11 @@ class Grid():
         
         # TODO: Start Here. You are free to remove anything below this method
         
-        points: list[Point] = []
+        points: list[Point] = [(0, 2), (2, 2)]
         return points
     
     
-    def toggle_point(self, pos: tuple[int, int]) -> Point:
+    def toggle_point(self, pos: tuple[int, int]) -> None:
         """ Adds or removes a point to an intersection on the grid (Thank you Fere for suggesting this (^-^) )
         
         Should snap the point to the grid intersection closest to the mouse cursor, as well as save the point
@@ -247,8 +251,7 @@ class Grid():
         
         print(f"Toggled Point {pos}")
         
-        point: Point = (0, 0)
-        return point
+        ...
     
     
     
