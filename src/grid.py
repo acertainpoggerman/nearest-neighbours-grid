@@ -179,9 +179,7 @@ class Grid():
         
         """
         
-        if self.can_click: self.clear_points()
-        else: 
-            self.clear_points
+        if not self.can_click: 
             result = self.randomize_points(self.randomized_point_count)
             if len(set(result)) < len(result): 
                 raise Exception("You got overlapping points :D")
